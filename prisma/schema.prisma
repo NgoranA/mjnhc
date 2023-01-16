@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Appointment {
+  id        String   @id @unique @default(uuid())
+  firstName String
+  lastName  String
+  email     String   @unique
+  phone     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  date      DateTime
+  country   String
+  userId    String
+  User      User     @relation(fields: [userId], references: [id])
+
+  @@map("appointments")
+}
+
+model Post {
+  id          String @id @unique @default(uuid())
+  image       String
+  title       String
+  description String
+  userId      String
+  User        User   @relation(fields: [userId], references: [id])
+
+  @@map("posts")
+}
+
+model Testimony {
+  id        String  @id @unique @default(uuid())
+  name      String
+  country   String
+  testimony String
+  published Boolean @default(false)
+
+  @@map("testimonies")
+}
+
+model User {
+  id          String        @id @unique @default(uuid())
+  username    String
+  email       String        @unique
+  role        Role          @default(CLIENT)
+  Post        Post[]
+  appointment Appointment[]
+  accounts    Account[]
+  sessions    Session[]
+
+  @@map("users")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Schedule {
+  id   String   @id @default(uuid())
+  day  String
+  from DateTime
+  to   DateTime
+
+  @@map("schedules")
+}
+
+enum Role {
+  ADMIN  @map("admin")
+  CLIENT @map("client")
+
+  @@map("_Role")
+}

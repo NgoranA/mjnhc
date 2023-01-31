@@ -3,22 +3,22 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Account {
-  id                String  @id @default(cuid())
-  userId            String
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -28,34 +28,32 @@ model Account {
 }
 
 model Appointment {
-  id        String   @id @unique @default(uuid())
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
   lastName  String
-  email     String   @unique
+  email     String    @unique
   phone     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime
-  date      DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  date      DateTime?
   country   String
-  userId    String
-  User      User     @relation(fields: [userId], references: [id])
 
   @@map("appointments")
 }
 
 model Post {
-  id          String @id @unique @default(uuid())
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
   image       String
   title       String
   description String
-  userId      String
+  userId      String @db.ObjectId
   User        User   @relation(fields: [userId], references: [id])
 
   @@map("posts")
 }
 
 model Testimony {
-  id        String  @id @unique @default(uuid())
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   country   String
   testimony String
@@ -65,22 +63,22 @@ model Testimony {
 }
 
 model User {
-  id          String        @id @unique @default(uuid())
-  username    String
-  email       String        @unique
-  role        Role          @default(CLIENT)
-  Post        Post[]
-  appointment Appointment[]
-  accounts    Account[]
-  sessions    Session[]
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  username String
+  email    String    @unique
+  position String
+  // role     Role      @default(CLIENT)
+  Post     Post[]
+  accounts Account[]
+  sessions Session[]
 
   @@map("users")
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique
-  userId       String
+  userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -88,6 +86,7 @@ model Session {
 }
 
 model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   identifier String
   token      String   @unique
   expires    DateTime
@@ -96,18 +95,18 @@ model VerificationToken {
   @@map("verificationtokens")
 }
 
-model Schedule {
-  id   String   @id @default(uuid())
-  day  String
-  from DateTime
-  to   DateTime
+// model Schedule {
+//   id   String   @id @default(auto()) @map("_id") @db.ObjectId
+//   day  String
+//   from DateTime
+//   to   DateTime
 
-  @@map("schedules")
-}
+//   @@map("schedules")
+// }
 
-enum Role {
-  ADMIN  @map("admin")
-  CLIENT @map("client")
+// enum Role {
+//   ADMIN  @map("admin")
+//   CLIENT @map("client")
 
-  @@map("_Role")
-}
+//   @@map("_Role")
+// }

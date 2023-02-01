@@ -28,17 +28,23 @@ model Account {
 }
 
 model Appointment {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String
-  lastName  String
-  email     String    @unique
-  phone     String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  date      DateTime?
-  country   String
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName     String
+  lastName      String
+  email         String    @unique
+  phone         String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  date          DateTime?
+  country       String
+  requestStatus String    @default("PENDING")
 
   @@map("appointments")
+}
+
+enum Status {
+  PENDING
+  APPROVED
 }
 
 model Post {

@@ -5,7 +5,7 @@ export const typeDefs = gql`
   #graphql
 
   type Testimony {
-    id: String
+    id: ID!
     name: String
     country: String
     testimony: String
@@ -14,7 +14,7 @@ export const typeDefs = gql`
 
   extend type Query {
     testimonies: [Testimony]
-    testimony(id: String!): Testimony
+    testimony(id: ID!): Testimony
   }
 
   input TestimonyInput {
@@ -24,19 +24,11 @@ export const typeDefs = gql`
     published: Boolean
   }
 
-  input TestimonyPublishInput {
-    published: Boolean
-  }
-
   type Mutation {
     addTestimony(content: TestimonyInput!): Testimony!
-    editTestimony(id: String!, content: TestimonyInput!): Testimony!
-    editTestimonyState(
-      id: String!
-      content: TestimonyInput!
-      published: TestimonyPublishInput!
-    ): Testimony!
-    deleteTestimony(id: String): Testimony!
+    editTestimony(id: ID!, content: TestimonyInput!): Testimony!
+    editTestimonyState(id: ID!): Testimony!
+    deleteTestimony(id: ID!): Testimony!
   }
 `;
 
@@ -56,21 +48,7 @@ export const resolver = {
   Mutation: {
     async addTestimony(_: any, args: any, ctx: ServerContext) {
       console.log(args);
-      return ctx.prisma.testimony.create({
-        data: {
-          name: args.content.name,
-          country: args.content.country,
-          testimony: args.content.content,
-          published: false,
-        },
-      });
-    },
-    async editTestimony(_: any, args: any, ctx: ServerContext) {
-      // handle the case for drafts here first before anything
-      return ctx.prisma.testimony.update({
-        where: {
-          id: args.id,
-        },
+      return await ctx.prisma.testimony.create({
         data: {
           name: args.content.name,
           country: args.content.country,
@@ -79,19 +57,33 @@ export const resolver = {
         },
       });
     },
-
-    async editTestimonyState(_: any, args: any, ctx: ServerContext) {
-      return ctx.prisma.testimony.update({
-        where: { id: args.id },
+    async editTestimony(_: any, args: any, ctx: ServerContext) {
+      // handle the case for drafts here first before anything
+      return await ctx.prisma.testimony.update({
+        where: {
+          id: args.id,
+        },
         data: {
           ...args.content,
-          published: args.published,
+          published: false,
+        },
+      });
+    },
+
+    async editTestimonyState(_: any, args: any, ctx: ServerContext) {
+      // const testimony = await ctx.prisma.testimony.findUnique({
+      //   where: { id: args.id },
+      // });
+      return await ctx.prisma.testimony.update({
+        where: { id: args.id },
+        data: {
+          published: true,
         },
       });
     },
 
     async deleteTestimony(_: any, args: any, ctx: ServerContext) {
-      return ctx.prisma.testimony.delete({
+      return await ctx.prisma.testimony.delete({
         where: { id: args.id },
       });
     },

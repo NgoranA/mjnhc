@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { ServerContext } from "../../pages/api/graphql";
+import { PrismaClient } from "@prisma/client";
 
 export const typeDefs = gql`
   #graphql
@@ -15,7 +16,7 @@ export const typeDefs = gql`
     createdAt: Date
     updatedAt: Date
     country: String!
-    # requestStatus: Status
+    status: Status
   }
 
   enum Status {
@@ -23,14 +24,14 @@ export const typeDefs = gql`
     APPROVED
   }
 
-  input CreateAppointmentInput {
+  input AppointmentInput {
     firstName: String!
     lastName: String!
     email: String!
     phone: String!
     date: Date
     country: String!
-    # requestStatus: String
+    status: Status
   }
 
   extend type Query {
@@ -41,7 +42,7 @@ export const typeDefs = gql`
   }
 
   "The response from the creation of an appointment"
-  type CreateAppointmentResponseType {
+  type CreateAppointmentResponse {
     code: String!
     success: Boolean!
     message: String!
@@ -50,9 +51,9 @@ export const typeDefs = gql`
 
   type Mutation {
     "This is the creation of an appointment"
-    createAppointment(
-      content: CreateAppointmentInput!
-    ): CreateAppointmentResponseType!
+    createAppointment(content: AppointmentInput!): CreateAppointmentResponse!
+    "This is to approve the appointment"
+    approveAppointment(id: ID!): CreateAppointmentResponse!
   }
 `;
 
@@ -72,13 +73,16 @@ export const appointmentResolvers = {
   },
   Mutation: {
     createAppointment: async (_: any, args: any, ctx: ServerContext) => {
-      // console.log("Date", new Date().getUTCDate());
-
       try {
         const appointment = await ctx.prisma.appointment.create({
           data: {
-            ...args.content,
-            // requestStatus: "PENDING",
+            firstName: args.content.firstName,
+            lastName: args.content.lastName,
+            email: args.content.email,
+            phone: args.content.phone,
+            date: args.content.date,
+            country: args.content.country,
+            status: "PENDING",
           },
         });
 
@@ -90,12 +94,38 @@ export const appointmentResolvers = {
           appointment,
         };
       } catch (error: any) {
-        console.log("erroorrrrrr", error);
-
         return {
           code: error?.code,
           success: false,
           message: error?.meta?.target,
+          appointment: null,
+        };
+      }
+    },
+
+    approveAppointment: async (
+      _: any,
+      { id }: { id: string },
+      { prisma }: { prisma: PrismaClient }
+    ) => {
+      try {
+        const appointment = await prisma.appointment.update({
+          where: { id: id },
+          data: {
+            status: "APPROVED",
+          },
+        });
+        return {
+          code: 201,
+          success: true,
+          message: "Appointment Approved",
+          appointment,
+        };
+      } catch (error) {
+        return {
+          code: 500,
+          success: false,
+          message: "Appointment Not Approved. Something happened!",
           appointment: null,
         };
       }

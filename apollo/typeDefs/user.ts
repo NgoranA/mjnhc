@@ -4,8 +4,17 @@ import { ServerContext } from "../../pages/api/graphql";
 export const typeDefs = gql`
   #graphql
   type User {
-    id: String
-    email: String
-    password: String
+    id: ID
+    username: String
+    email: String    
+    position: String
+    image:   String?
+    posts: [Post]
+  }
+  
+
+  extend type Query {
+    getUser(id: ID!): User
+    
   }
 `;

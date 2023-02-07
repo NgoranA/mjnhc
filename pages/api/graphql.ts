@@ -4,7 +4,8 @@ import { schema } from "../../apollo/schema/schema";
 import prisma from "../../apollo/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
 
 export type ServerContext = {
   req: NextApiRequest;
@@ -16,19 +17,21 @@ export const apolloServer = new ApolloServer<ServerContext>({ schema });
 
 export default startServerAndCreateNextHandler(apolloServer, {
   context: async (req, res) => {
-    const session = getSession();
+    const session = await getServerSession(req, res, authOptions);
 
-    if (!session)
+    if (!session) {
       return {
         req,
         res,
         prisma,
       };
-
+    }
+    const { user } = session;
     return {
       req,
       res,
       prisma,
+      user,
     };
   },
 });

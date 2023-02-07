@@ -6,72 +6,88 @@ export const typeDefs = gql`
   scalar Date
 
   type User {
+    id: ID
     username: String
+    email: String
+    position: String
+    image: String
+    posts: [Post]
   }
 
   type Post {
-    id: String
+    id: ID!
     title: String
-    imageUrl: String
-    content: String
+    image: String
+    description: String
     createdAt: Date
     updatedAt: Date
-    userId: String
+    user: User
   }
 
   extend type Query {
     getAllPosts: [Post]
-    post(id: String!): Post
+    getPost(id: String!): Post
   }
 
   input CreatePostInput {
     title: String
-    content: String
-    imageUrl: String
-    userId: String
+    description: String
+    image: String
+  }
+
+  type CreatePostResponse {
+    code: Int
+    success: Boolean
+    message: String
+    post: Post
   }
 
   type Mutation {
-    createPost(content: CreatePostInput!): Post!
+    createPost(data: CreatePostInput!): CreatePostResponse!
+    editPost(id: ID!, content: CreatePostInput!): CreatePostResponse!
+    deletePost(id: ID!): Post
   }
 `;
 
-// const post = [
-//   {
-//     title: "hello",
-//     content: "String",
-//     createdAt: "Date",
-//     updatedAt: "Date",
-//     user: "User",
-//   },
-//   {
-//     title: "This is the first blog post ",
-//     content: "String",
-//     createdAt: "Date",
-//     updatedAt: "Date",
-//     user: "User",
-//   },
-// ];
-
 export const resolver = {
   Query: {
-    async getAllPosts(_: any, __: any, ctx: any) {
-      return ctx.prisma.post.findMany();
+    async getAllPosts(_: any, __: any, ctx: ServerContext) {
+      return await ctx.prisma.post.findMany({
+        include: {
+          User: true,
+        },
+      });
+    },
+    async getPost(_: any, { id }: { id: string }, ctx: ServerContext) {
+      return await ctx.prisma.post.findUnique({
+        where: { id: id },
+        include: {
+          User: true,
+        },
+      });
     },
   },
-  // Mutation: {
-  //   async createPost(_: any, args: any, ctx: ServerContext) {
-  //     try {
-  //       return ctx.prisma.user.create({
-  //         data: {
-  //           title: args.content.title,
-  //           content: args.content.content,
-  //           imageUrl: args.content.imageUrl,
-
-  //           userId: args.content.userId,
-  //         },
-  //       });
-  //     } catch (error) {}
-  //   },
-  // },
+  Mutation: {
+    async createPost(_: any, args: any, ctx: any) {
+      try {
+        const post = await ctx.prisma.post.create({
+          data: {
+            title: args.data.title,
+            description: args.data.description,
+            image: args.data.image,
+            User: {
+              //
+              create: {
+                username: "Ngoran",
+                email: "ngoran@gmail.com",
+              },
+            },
+          },
+        });
+        return {};
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };

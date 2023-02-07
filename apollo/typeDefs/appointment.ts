@@ -60,11 +60,11 @@ export const typeDefs = gql`
 export const appointmentResolvers = {
   Query: {
     async appointments(_: any, __: any, context: ServerContext) {
-      return await context.prisma.appointment.findMany();
+      return await context?.prisma?.appointment.findMany();
     },
 
     async appointment(_: any, args: any, ctx: ServerContext) {
-      return await ctx.prisma.appointment.findUnique({
+      return await ctx.prisma?.appointment.findUnique({
         where: {
           id: args.id,
         },
@@ -74,7 +74,7 @@ export const appointmentResolvers = {
   Mutation: {
     createAppointment: async (_: any, args: any, ctx: ServerContext) => {
       try {
-        const appointment = await ctx.prisma.appointment.create({
+        const appointment = await ctx?.prisma?.appointment.create({
           data: {
             firstName: args.content.firstName,
             lastName: args.content.lastName,

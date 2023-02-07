@@ -13,12 +13,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?
-  access_token      String?
+  refresh_token     String? @db.String
+  access_token      String? @db.String
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?
+  id_token          String? @db.String
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -69,14 +69,16 @@ model Testimony {
 }
 
 model User {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  username String
-  email    String    @unique
-  position String
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  username      String
+  email         String    @unique
+  position      String?
+  image         String?
+  emailVerified DateTime?
   // role     Role      @default(CLIENT)
-  Post     Post[]
-  accounts Account[]
-  sessions Session[]
+  Post          Post[]
+  accounts      Account[]
+  sessions      Session[]
 
   @@map("users")
 }

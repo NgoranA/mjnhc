@@ -51,9 +51,6 @@ function Navbar() {
           alt="logo"
         />
         <div className="lg:hidden items-center flex space-x-6 ">
-          {/* <button className=" bg-redish px-6 rounded-md py-2 text-white ">
-          Book Us{" "}
-        </button> */}
           <button
             className={`text-2xl text-greyish font-bold ${
               openMenu ? " animate-bounce" : "animate-pulse"
@@ -70,9 +67,9 @@ function Navbar() {
             return (
               <Link
                 key={index}
-                className={`${
+                className={` ${
                   router.asPath === page.path && " border-b-4 border-b-redish  "
-                } hover:px-2 hover:scale-100 delay-300 hover:text-redish hover:-translate-y-1 `}
+                }  font-red   hover:scale-100 delay-150 hover:text-redish hover:-translate-y-1  `}
                 href={page.path}
               >
                 {" "}
@@ -80,48 +77,31 @@ function Navbar() {
               </Link>
             );
           })}
-          {/* <Link
-            href=""
-            className="transition ease-in-out delay-75 border-b-4 border-b-redish hover:-translate-y-1 hover:px-2 hover:scale-105"
-          >
-            Home
-          </Link>
-          <Link href="" className=" ">
-            Services
-          </Link>
-          <Link href="" className=" ">
-            About Us
-          </Link>
-          <Link href="" className=" ">
-            Blog
-          </Link>
-          <Link href="" className="">
-            Contact Us
-          </Link> */}
         </div>
-        <button className="hidden bg-redish px-8 rounded-md py-3 text-white lg:block">
-          Book an appintment{" "}
+        <button className="hidden bg-redish px-8 font-red_hat  rounded-md py-3 text-white lg:block">
+          Book an appointment{" "}
         </button>
       </nav>
       {openMenu && (
         <div className="w-full flex flex-col transition ease-linear delay-75  bg-white absolute">
-          <Link href="" className="w-full bg-pinkish px-3 py-3 ">
-            Home
-          </Link>
-          <Link href="" className="w-full px-3 py-3 ">
-            Services
-          </Link>
-          <Link href="" className="w-full px-3 py-3 ">
-            About Us
-          </Link>
-          <Link href="" className="w-full px-3 py-3 ">
-            Blog
-          </Link>
-          <Link href="" className="w-full px-3 py-3 ">
-            Contact Us
-          </Link>
+          {menu.map((page, index) => {
+            return (
+              <Link
+                key={index}
+                className={`w-full font-bold  px-3 py-3 ${
+                  router.asPath === page.path &&
+                  " border-l-8 border-l-redish bg-pinkish"
+                }`}
+                href={page.path}
+              >
+                {" "}
+                {page.label}{" "}
+              </Link>
+            );
+          })}
+
           <div className="w-full px-2">
-            <button className="w-full rounded-md bg-redish text-white py-3 ">
+            <button className="w-full font-red_hat font-bold rounded-md bg-redish text-white py-3 ">
               Book an appointment
             </button>
           </div>

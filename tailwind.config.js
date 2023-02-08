@@ -14,7 +14,11 @@ module.exports = {
       lightish: "#FBDDDD",
       white: "#ffffff",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        red: ["var(--red-hat-display)", "system ui"],
+      },
+    },
   },
   plugins: [],
 };

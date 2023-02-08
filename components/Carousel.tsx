@@ -1,7 +1,7 @@
 import React from "react";
 
 function Carousel() {
-  return <div>Carousel</div>;
+  return <div className="">Carousel</div>;
 }
 
 export default Carousel;

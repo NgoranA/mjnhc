@@ -1,7 +1,14 @@
 import React from "react";
+import Topbar from "../components/Topbar";
+import Navbar from "../components/Navbar";
 
 function Contact(): JSX.Element {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <Topbar />
+      <Navbar />
+    </div>
+  );
 }
 
 export default Contact;

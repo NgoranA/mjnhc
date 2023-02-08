@@ -4,9 +4,8 @@ import React, { Fragment } from "react";
 import Topbar from "../components/Topbar";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import { GetStaticProps, GetStaticPropsContext } from "next";
-import { initializeApollo } from "../apollo/client";
-import { prisma } from "../apollo/prisma";
+
+import prisma from "../apollo/prisma";
 
 export default function Home(): JSX.Element {
   return (

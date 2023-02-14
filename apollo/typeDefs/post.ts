@@ -102,8 +102,8 @@ export const resolver = {
     },
     async editPost(
       parent: any,
-      { id, content },
-      { prisma, user }: { prisma: PrismaClient }
+      { id, content }: { id: string; content: any },
+      { prisma, user }: { prisma: PrismaClient; user: any }
     ) {
       try {
         const post = await prisma.post.update({
@@ -130,7 +130,7 @@ export const resolver = {
     async deletePost(
       parent: any,
       { id }: { id: string },
-      { prisma, user }: { prisma: PrismaClient }
+      { prisma, user }: { prisma: PrismaClient; user: any }
     ) {
       try {
         const post = prisma.post.delete({ where: { id } });

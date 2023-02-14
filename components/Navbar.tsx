@@ -69,7 +69,7 @@ function Navbar() {
                 key={index}
                 className={` ${
                   router.asPath === page.path && " border-b-4 border-b-redish  "
-                }  font-red   hover:scale-100 delay-150 hover:text-redish hover:-translate-y-1  `}
+                }  font-red font-medium hover:scale-100 delay-150 hover:text-redish hover:-translate-y-1  `}
                 href={page.path}
               >
                 {" "}

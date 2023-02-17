@@ -11,7 +11,10 @@ import Link from "next/link";
 
 const Services = () => {
   return (
-    <div className=" grid grid-flow-row-dense h-screen bg-pinkish  items-center  py-6 px-16 ">
+    <div
+      id="services"
+      className=" grid grid-flow-row-dense h-screen bg-pinkish  items-center  py-6 px-16 "
+    >
       <div className=" flex flex-col gap-2">
         <p className="font-bold underline decoration-2 underline-offset-4 ">
           OUR SERVICES

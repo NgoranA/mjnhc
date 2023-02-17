@@ -5,9 +5,7 @@ const AboutSection = () => {
   return (
     <div className="h-screen px-16 grid items-center grid-cols-2 ">
       <section className="grid gap-4">
-        <p className="font-bold underline decoration-2 underline-offset-4 ">
-          WHO WE ARE
-        </p>
+        <p className="font-bold text-redish  ">WHO WE ARE</p>
         <p className="text-3xl font-extrabold">
           Experienced and Open Minded Team of HealthCare Professionals
         </p>
@@ -19,7 +17,7 @@ const AboutSection = () => {
           facilities around the world PRECISELY IN U.K, U.S.A, U.A.E, and
           Germany.
         </p>
-        <div className="grid grid-cols-2 ">
+        <div className="grid grid-cols-2  ">
           <div className="flex gap-3 h-20 justify-start">
             <div className=" grid items-center bg-pinkish rounded-md p-3 justify-center">
               {" "}

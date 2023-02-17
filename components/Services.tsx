@@ -13,19 +13,28 @@ const Services = () => {
   return (
     <div
       id="services"
-      className=" grid grid-flow-row-dense h-screen bg-pinkish  items-center  py-6 px-16 "
+      className=" grid grid-flow-row-dense h-screen bg-lightish  items-center  py-6 px-16 "
     >
-      <div className=" flex flex-col gap-2">
-        <p className="font-bold underline decoration-2 underline-offset-4 ">
-          OUR SERVICES
-        </p>
-        <p className="text-4xl font-bold w-5/12 ">
-          We Provide Better Health Experience and Placement
-        </p>
+      <div className="flex items-center justify-between">
+        <div className=" flex flex-col  gap-2">
+          <p className="font-bold text-redish offset-4 shadow-2xl shadow-redish  ">
+            OUR SERVICES
+          </p>
+          <p className="text-3xl font-bold w-2/3 ">
+            We Provide Better Health Experience and Placement
+          </p>
+        </div>
+        <Link
+          href="/services"
+          className="bg-redish transition   hover:duration-500 hover:ease-in-out hover:-translate-y-2 shadow-2xl hover: shadow-redish rounded-lg text-white  px-9 py-3"
+        >
+          {" "}
+          All Services{" "}
+        </Link>
       </div>
       <div className="grid gap-6 text-greyish grid-cols-4">
-        <div className="bg-white h-96 p-3  rounded-lg">
-          <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
+        <div className="bg-white h-96 p-3 hover:-translate-y-4 duration-300 hover:text-redish  rounded-lg">
+          <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight hover:border-lightish border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
                 icon={faUserDoctor}
@@ -45,14 +54,14 @@ const Services = () => {
           {/* <div className="w-full"> */}
           <Link
             href="services"
-            className="h-12 w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
+            className="h-12  w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
           >
             {" "}
             <FontAwesomeIcon icon={faArrowRight} />{" "}
           </Link>
           {/* </div> */}
         </div>
-        <div className="bg-white h-96 p-3  rounded-lg">
+        <div className="bg-white hover:-translate-y-4 duration-300 h-96 p-3  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -78,7 +87,7 @@ const Services = () => {
             <FontAwesomeIcon icon={faArrowRight} />{" "}
           </Link>
         </div>
-        <div className="bg-white h-96 p-3  rounded-lg">
+        <div className="bg-white h-96 p-3 hover:-translate-y-4 duration-300  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -104,7 +113,7 @@ const Services = () => {
             <FontAwesomeIcon icon={faArrowRight} />{" "}
           </Link>
         </div>
-        <div className="bg-white h-96 p-3  rounded-lg">
+        <div className="bg-white h-96 p-3 hover:-translate-y-4 duration-300  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -114,7 +123,7 @@ const Services = () => {
             </div>
             <p className="font-bold text-xl">
               {" "}
-              Ensure a <span className="text-redish">guaranteed</span> placement
+              Ensure <span className="text-redish">guaranteed</span> placement
               of <span className="text-blackish">Professional</span>{" "}
             </p>
             <p className="text-lg text-greyish">

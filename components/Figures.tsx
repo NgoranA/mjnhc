@@ -1,7 +1,7 @@
 import React from "react";
 
 function Figures() {
-  return <div>Figures</div>;
+  return <section className="bg-greyish h-48 w-full"></section>;
 }
 
 export default Figures;

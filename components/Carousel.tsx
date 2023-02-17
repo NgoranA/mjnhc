@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Image from "next/image";
+import Link from "next/link";
 
 function Carousel() {
   return (
@@ -26,17 +27,23 @@ function Carousel() {
           healthcare facilities abroad.
         </p>
         <div className="flex gap-4">
-          <button className="bg-redish border h-11 border-redish rounded-md py-2 px-4 text-white text-sm">
+          <Link
+            href=""
+            className="bg-redish duration-500 hover:-translate-y-2  border h-11 border-redish rounded-md py-2 px-4 text-white text-sm"
+          >
             {" "}
             Learn More
-          </button>
-          <button className=" flex px-5 items-center hover:-translate-y-2 shadow-md shadow-redish h-11 border border-redish rounded-md  text-redish">
+          </Link>
+          <Link
+            href=""
+            className=" flex px-5 duration-500 items-center hover:-translate-y-2 shadow-md shadow-redish h-11 border border-redish rounded-md  text-redish"
+          >
             <FontAwesomeIcon
               className="text-2xl mr-2"
               icon={faWhatsapp as IconProp}
             />
             +237 558 996 887
-          </button>
+          </Link>
         </div>
       </div>
       <div className="grid items-center justify-center ">

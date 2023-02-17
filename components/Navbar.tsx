@@ -35,7 +35,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className=" px-3 md:px-16 flex items-center justify-between">
+      <nav className=" sticky px-3 md:px-16 flex items-center justify-between">
         <Image
           src="/logo.png"
           className="hidden lg:block"

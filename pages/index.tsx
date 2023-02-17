@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 
 import prisma from "../apollo/prisma";
 import AboutSection from "../components/About";
+import Services from "../components/Services";
 
 export default function Home(): JSX.Element {
   return (
@@ -22,6 +23,7 @@ export default function Home(): JSX.Element {
         <Navbar />
         <Hero />
         <AboutSection />
+        <Services />
       </Fragment>
     </>
   );

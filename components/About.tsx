@@ -5,9 +5,11 @@ const AboutSection = () => {
   return (
     <div className="h-screen px-16 grid items-center grid-cols-2 ">
       <section className="grid gap-4">
-        <p className="font-bold">WHO WE ARE</p>
+        <p className="font-bold underline decoration-2 underline-offset-4 ">
+          WHO WE ARE
+        </p>
         <p className="text-3xl font-extrabold">
-          We Provide Better Health Experience and Placement
+          Experienced and Open Minded Team of HealthCare Professionals
         </p>
         <p>
           MJN Healthcare Consulting is a team of healthcare professionals who

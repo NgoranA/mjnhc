@@ -9,6 +9,7 @@ import prisma from "../apollo/prisma";
 import AboutSection from "../components/About";
 import Services from "../components/Services";
 import Figures from "../components/Figures";
+import Team from "../components/Team";
 
 export default function Home(): JSX.Element {
   return (
@@ -26,6 +27,7 @@ export default function Home(): JSX.Element {
         <AboutSection />
         <Services />
         <Figures />
+        <Team />
       </main>
     </>
   );

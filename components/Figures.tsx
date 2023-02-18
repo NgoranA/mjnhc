@@ -25,8 +25,8 @@ function Figures() {
         <div className="flex  flex-col gap-12 -translate-y-8 ">
           <div className="bg-redish h-20 rounded-md  ">
             <div className="bg-pinkish shadow-md shadow-redish  -translate-x-5 -translate-y-5 px-5 py-2 scroll-smooth  rounded-md h-20 w-56">
-              <p className="text-lg text-greyish font-bold">200+</p>
-              <p className="text-lg text-greyish">Placements Made</p>
+              <p className="text-lg text-greyish font-bold">10+</p>
+              <p className="text-lg text-greyish">Years of Experience</p>
             </div>
           </div>
           <div className="bg-redish h-20 rounded-md   ">
@@ -39,14 +39,14 @@ function Figures() {
         <div className="flex  gap-12 flex-col translate-y-8 ">
           <div className="bg-redish h-20 rounded-md   ">
             <div className="bg-pinkish shadow-md shadow-redish  -translate-x-5 -translate-y-5 px-5 py-2 scroll-smooth  rounded-md h-20 w-56">
-              <p className="text-lg text-greyish font-bold">200+</p>
-              <p className="text-lg text-greyish">Placements Made</p>
+              <p className="text-lg text-greyish font-bold">100+</p>
+              <p className="text-lg text-greyish">Exams Success Stories</p>
             </div>
           </div>
           <div className="bg-redish h-20 rounded-md   ">
             <div className="bg-pinkish shadow-md shadow-redish  -translate-x-5 -translate-y-5 px-5 py-2 scroll-smooth  rounded-md h-20 w-56">
-              <p className="text-lg text-greyish font-bold">200+</p>
-              <p className="text-lg text-greyish">Placements Made</p>
+              <p className="text-lg text-greyish font-bold">15+</p>
+              <p className="text-lg text-greyish">Support Hours</p>
             </div>
           </div>
         </div>

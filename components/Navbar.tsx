@@ -83,7 +83,7 @@ function Navbar() {
         </button>
       </nav>
       {openMenu && (
-        <div className="w-full flex flex-col transition ease-linear delay-75  bg-white absolute">
+        <div className="w-full z-50 flex flex-col transition ease-linear delay-75  bg-white absolute">
           {menu.map((page, index) => {
             return (
               <Link

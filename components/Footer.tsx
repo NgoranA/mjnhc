@@ -24,9 +24,40 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex bg-lightish flex-col px-16 items-start py-8">
-      <div className="flex  gap-5 justify-between">
-        <div className="flex gap-5 flex-col w-3/12">
+    <footer className="flex bg-lightish px-4 mg:px-16 items-start py-8">
+      <div className="flex flex-col-reverse md:flex-row  gap-5 justify-between">
+        <div className=" gap-3 flex md:hidden  flex-col">
+          <p className="font-bold text-greyish text-base">
+            Our Contact Information
+          </p>
+          <ul className="flex gap-2 flex-col text-greyish">
+            <li>
+              {" "}
+              <FontAwesomeIcon
+                icon={faMapLocation}
+                className="text-redish text-base mr-3"
+              />{" "}
+              Tourist Club Area Abu Dhabi United Arab Emirates (UAE)
+            </li>
+            <li>
+              {" "}
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="text-redish text-base mr-3"
+              />{" "}
+              info@mjnhealthcare-consulting.com
+            </li>
+            <li>
+              {" "}
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="text-redish text-base mr-3"
+              />{" "}
+              (+971)525253890
+            </li>
+          </ul>
+        </div>
+        <div className="flex gap-5 flex-col w-full md:w-3/12">
           <Image alt="logo" src="/logo.png" width={246} height={71} />
           <p className="text-base text-greyish">
             MJN Healthcare Consulting is a team of healthcare professionals who
@@ -39,7 +70,8 @@ const Footer = () => {
             <FontAwesomeIcon icon={faLinkedinIn as IconProp} />
           </div>
         </div>
-        <div className="flex  gap-8 flex-col w-2/12">
+
+        <div className="flex  gap-8 flex-col w-full md:w-2/12">
           <p className="text-lg font-bold text-greyish">Other Pages</p>
           <ul className="gap-2 flex text-greyish flex-col">
             <li className="hover:text-redish">
@@ -84,7 +116,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-3 w-6/12">
+        <div className="flex flex-col gap-3 w-full md:w-6/12">
           <div className="h-32 bg-greyish py-3 gap-3 px-5 rounded-lg flex flex-col">
             <p className="text-lg text-white">Subscribe to Our Newsletter</p>
             <div>
@@ -94,13 +126,13 @@ const Footer = () => {
               />
               {/* <button> */}
               <FontAwesomeIcon
-                className="bg-greyish  p-3 rounded-full text-white absolute -ml-11 mt-1"
-                icon={faPaperPlane as IconProp}
+                className="bg-greyish p-3 rounded-full text-white absolute -ml-11 mt-1"
+                icon={faPaperPlane}
               />
               {/* </button> */}
             </div>
           </div>
-          <div className="flex gap-3 flex-col">
+          <div className=" gap-3 hidden md:flex flex-col">
             <p className="font-bold text-greyish text-base">
               Our Contact Information
             </p>

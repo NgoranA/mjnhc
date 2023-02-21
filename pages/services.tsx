@@ -23,7 +23,7 @@ function Services() {
       <Topbar />
       <Navbar />
       <section className="flex flex-col">
-        <div className="bg-pinkish h-72 justify-center w-full gap-4 items-center flex flex-col">
+        <div className="bg-pinkish h-60 justify-center w-full gap-4 items-center flex flex-col">
           <p className="text-3xl font-bold text-redish">Services</p>
           <p>
             {" "}
@@ -35,7 +35,7 @@ function Services() {
             Services{" "}
           </p>
         </div>
-        <div className=" px-3 md:px-16 flex flex-col md:flex-row gap-12 py-20 md:py-32">
+        <div className=" px-3 md:px-16 flex flex-col md:flex-row gap-12 py-16 md:py-28">
           <div className="flex justify-between w-full md:w-6/12 flex-col">
             <div className="relative h-full">
               <Image

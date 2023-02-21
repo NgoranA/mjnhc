@@ -10,6 +10,7 @@ import AboutSection from "../components/About";
 import Services from "../components/Services";
 import Figures from "../components/Figures";
 import Team from "../components/Team";
+import Testimony from "../components/Testimony";
 
 export default function Home(): JSX.Element {
   return (
@@ -28,6 +29,7 @@ export default function Home(): JSX.Element {
         <Services />
         <Figures />
         <Team />
+        <Testimony />
       </main>
     </>
   );

@@ -1,7 +1,6 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
-  faFacebook,
-  faFacebookF,
+  faFacebookSquare,
   faLinkedinIn,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
@@ -20,7 +19,7 @@ const Team = () => {
             <span className="font-bold"> Mbout John Nyah</span> and his Well
             Trained and Experienced Team of Experts are dedicated in providing
             the best possible health care job placement. We at MJN Healthcare
-            consulting are focused on helping you get a better ob placement
+            consulting are focused on helping you get a better job placement
             abroad.
           </p>
           <div>
@@ -59,22 +58,22 @@ const Team = () => {
             </div>
             <div className="flex items-center text-redish gap-3 text-2xl">
               <FontAwesomeIcon icon={faWhatsapp as IconProp} />
-              <FontAwesomeIcon icon={faFacebookF as IconProp} />
+              <FontAwesomeIcon icon={faFacebookSquare as IconProp} />
               <FontAwesomeIcon icon={faLinkedinIn as IconProp} />
             </div>
           </figcaption>
         </figure>
         <figure className="flex hover:scale-110 transition duration-500 items-center text-right justify-end gap-3  bg-white w-full rounded-2xl ">
           <figcaption className=" flex gap-5 flex-col">
-            <p className="text-lg font-bold">Ngoran Mirabel Kiwonyuy </p>
+            <p className="text-lg font-bold">Mrs. Karean Etchu </p>
             <div>
               <p className="text-lg text-redish">Country Manager </p>
-              <p className="text-base">United Arab Emirates</p>
-              <p className="text-base">R.N</p>
+              <p className="text-base">United Kingdom</p>
+              <p className="text-base">SRN</p>
             </div>
             <div className="flex items-center justify-end text-redish gap-3 text-2xl">
               <FontAwesomeIcon icon={faWhatsapp as IconProp} />
-              <FontAwesomeIcon icon={faFacebookF as IconProp} />
+              <FontAwesomeIcon icon={faFacebookSquare as IconProp} />
               <FontAwesomeIcon icon={faLinkedinIn as IconProp} />
             </div>
           </figcaption>

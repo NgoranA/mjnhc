@@ -11,6 +11,7 @@ import Services from "../components/Services";
 import Figures from "../components/Figures";
 import Team from "../components/Team";
 import Testimony from "../components/Testimony";
+import Appointment from "../components/Appointment";
 
 export default function Home(): JSX.Element {
   return (
@@ -30,6 +31,7 @@ export default function Home(): JSX.Element {
         <Figures />
         <Team />
         <Testimony />
+        <Appointment />
       </main>
     </>
   );

@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import usPic from "../public/us.jpg";
-import sar from "../public/sar.jpg";
+import j from "../public/john.png";
 import Link from "next/link";
 
 function About(): JSX.Element {
@@ -81,11 +81,11 @@ function About(): JSX.Element {
             <div className="flex gap-5 mt-2 flex-col justify-between md:flex-row ">
               <div className="flex items-center gap-3">
                 <Image
-                  src={sar}
+                  src={j}
                   alt="ceo-pic"
-                  height={70}
-                  className="rounded-full"
-                  width={70}
+                  // height={70}
+                  // width={70}
+                  className="rounded-full w-20 h-20"
                 />
                 <div className="flex gap-2 flex-col">
                   <p className="text-md font-bold">Mbout John Nyah, RN, BSN</p>

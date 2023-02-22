@@ -5,6 +5,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Image from "next/image";
 import hero from "../public/hero.png";
 import Link from "next/link";
+import j from "../public/j.png";
 
 function Carousel() {
   return (
@@ -50,10 +51,10 @@ function Carousel() {
       <div className="relative flex md:h-full   items-center justify-center ">
         <Image
           alt="hero image"
-          src="/hero.png"
-          className="absolute h-full overflow-hidden  md:ml-14"
-          height={600}
-          width={320}
+          src={j}
+          className="absolute h-full w-96 overflow-hidden  md:ml-14"
+          // height={600}
+          // width={500}
         />
         <div className=" h-96 w-96 bg-gradient-to-b from-redish to-pinkish rounded-full "></div>
       </div>

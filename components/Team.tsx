@@ -7,6 +7,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
+import team1 from "../public/team1.jpg";
+import ceo from "../public/j.png";
 
 const Team = () => {
   return (
@@ -39,24 +41,24 @@ const Team = () => {
         <div className="w-full sm:w-5/12  md:ml-96 overflow-hidden ">
           {/* <div className="overflow-x-hidden"> */}
           <Image
-            src="/seo.png"
+            src={ceo}
             alt="ceo picture"
-            className="absolute hover:scale-105 transition duration-500 ml-0 sm:-ml-52  "
+            className="absolute z-20 hover:scale-105 transition duration-500 ml-0 sm:-ml-52  "
             height={400}
             width={350}
           />
           {/* </div> */}
           {/* <div className="absolute z-50 bg-redish -ml-52  h-20  w-full"></div> */}
-          <div className=" h-96 w-96 -mr-36 bg-gradient-to-b from-redish z-30  rounded-full"></div>
+          <div className=" h-96 w-96 -mr-36 bg-gradient-to-b from-redish z-40  rounded-full"></div>
         </div>
       </div>
-      <div className="bg-gradient-to-t from-lightish z-40  -mt-14 h-20 "></div>
+      <div className="bg-gradient-to-t from-lightish z-50  -mt-24 h-20 "></div>
       <div className="bg-lightish h-full z-50 flex flex-col sm:flex-row gap-9 justify-between px-8 md:px-16  w-full">
         <figure className="flex flex-col md:flex-row hover:scale-110 items-center gap-3 transition duration-500 bg-white w-full rounded-2xl ">
           <Image
-            src="/f.jpg"
-            width={300}
-            height={50}
+            src={team1}
+            // width={300}
+            // height={50}
             className=" h-full w-full md:w-6/12 rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none  "
             alt="team_picture"
           />
@@ -82,16 +84,16 @@ const Team = () => {
               <p className="text-base">United Kingdom</p>
               <p className="text-base">SRN</p>
             </div>
-            <div className="flex items-center justify-end text-redish gap-3 text-2xl">
+            <div className="flex items-center  justify-end text-redish gap-3 text-2xl">
               <FontAwesomeIcon icon={faWhatsapp as IconProp} />
               <FontAwesomeIcon icon={faFacebookSquare as IconProp} />
               <FontAwesomeIcon icon={faLinkedinIn as IconProp} />
             </div>
           </figcaption>
           <Image
-            src="/f.jpg"
-            width={300}
-            height={50}
+            src={team1}
+            // width={300}
+            // height={50}
             className=" h-full rounded-t-2xl w-full md:w-6/12 md:rounded-r-2xl md:rounded-tl-none "
             alt="team_picture"
           />

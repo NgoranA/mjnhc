@@ -2,6 +2,9 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
+import tita from "../public/test2.jpg";
+import imj from "../public/imj.jpg";
+import sar from "../public/sar.jpg";
 
 const Testimony = () => {
   return (
@@ -22,10 +25,10 @@ const Testimony = () => {
           {/* <div> */}
           <center>
             <Image
-              src="/sar.jpg"
-              height={100}
-              width={100}
-              className="rounded-full"
+              src={sar}
+              // height={100}
+              // width={100}
+              className="rounded-full h-20 w-20"
               alt="testimony_image"
             />
           </center>
@@ -56,10 +59,10 @@ const Testimony = () => {
           {/* <div> */}
           <center>
             <Image
-              src="/sar.jpg"
-              height={100}
-              width={100}
-              className="rounded-full"
+              src={imj}
+              // height={100}
+              // width={100}
+              className="rounded-full h-20 w-20"
               alt="testimony_image"
             />
           </center>
@@ -90,10 +93,10 @@ const Testimony = () => {
           {/* <div> */}
           <center>
             <Image
-              src="/sar.jpg"
-              height={100}
-              width={100}
-              className="rounded-full"
+              src={tita}
+              // height={100}
+              // width={100}
+              className="rounded-full h-20 w-20"
               alt="testimony_image"
             />
           </center>

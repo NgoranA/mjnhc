@@ -17,16 +17,16 @@ function Navbar() {
     },
     {
       label: "Services",
-      path: "#services",
+      path: "services",
     },
     {
       label: "About Us",
       path: "/about",
     },
-    {
-      label: "Blog",
-      path: "/blog",
-    },
+    // {
+    //   label: "Blog",
+    //   path: "/blog",
+    // },
     {
       label: "Contact Us",
       path: "/contact",
@@ -78,12 +78,15 @@ function Navbar() {
             );
           })}
         </div>
-        <button className="hidden bg-redish px-8 font-red_hat  rounded-md py-3 text-white lg:block">
+        <Link
+          href="appointment"
+          className="hidden bg-redish px-8 font-red_hat  rounded-md py-3 text-white lg:block"
+        >
           Book an appointment{" "}
-        </button>
+        </Link>
       </nav>
       {openMenu && (
-        <div className="w-full z-50 flex flex-col transition ease-linear delay-75  bg-white absolute">
+        <nav className="w-full h-80 z-50 flex flex-col transition ease-linear delay-75  bg-white absolute">
           {menu.map((page, index) => {
             return (
               <Link
@@ -100,12 +103,15 @@ function Navbar() {
             );
           })}
 
-          <div className="w-full px-2">
-            <button className="w-full font-red_hat font-bold rounded-md bg-redish text-white py-3 ">
+          <div className="w-full py-8 px-2">
+            <Link
+              href="appointment"
+              className="w-full px-5 font-red_hat font-bold rounded-md bg-redish text-white py-3 "
+            >
               Book an appointment
-            </button>
+            </Link>
           </div>
-        </div>
+        </nav>
       )}
     </>
   );

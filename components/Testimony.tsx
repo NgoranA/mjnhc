@@ -5,20 +5,20 @@ import React from "react";
 
 const Testimony = () => {
   return (
-    <section className="h-screen px-16 py-12 flex gap-12 flex-col">
-      <div className="flex items-center justify-between">
+    <section className="h-full px-3 md:px-16 py-12 flex gap-12 flex-col">
+      <div className="flex flex-col md:flex-row items-center justify-between">
         <div>
           <p className="text-base font-bold text-redish">FEEDBACK</p>
           <p className="text-3xl font-bold ">What our clients say about us.</p>
         </div>
-        <p className="text-lg text-greyish w-1/3">
+        <p className="text-lg text-greyish w-full md:w-1/3">
           {" "}
           These kind words mean a lot to us and so we look forward to shaping
           more careers.{" "}
         </p>
       </div>
-      <div className="flex items-center gap-16 justify-center">
-        <div className="flex w-3/12 gap-3 flex-col ">
+      <div className="flex items-center flex-col md:flex-row gap-16 justify-center">
+        <div className="flex w-full md:w-3/12 gap-3 flex-col ">
           {/* <div> */}
           <center>
             <Image
@@ -52,7 +52,7 @@ const Testimony = () => {
             <p className="text-greyish ">Cameroonian</p>
           </div>
         </div>
-        <div className="flex w-3/12 gap-3 flex-col ">
+        <div className="flex w-full md:w-3/12 gap-3 flex-col ">
           {/* <div> */}
           <center>
             <Image
@@ -86,7 +86,7 @@ const Testimony = () => {
             <p className="text-greyish">Cameroonian</p>
           </div>
         </div>
-        <div className="flex w-3/12 gap-3 flex-col ">
+        <div className="flex w-full md:w-3/12 gap-3 flex-col ">
           {/* <div> */}
           <center>
             <Image

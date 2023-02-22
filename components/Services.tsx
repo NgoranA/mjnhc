@@ -13,26 +13,19 @@ const Services = () => {
   return (
     <div
       id="services"
-      className=" grid grid-flow-row-dense h-screen bg-pinkish  items-center  py-7 px-16 "
+      className=" grid  md:grid-flow-row-dense h-full gap-8  bg-pinkish  items-center py-12 px-3 md:px-16 "
     >
       <div className="flex items-center justify-between">
         <div className=" flex flex-col  gap-2">
           <p className="font-bold text-redish offset-4 shadow-2xl shadow-redish  ">
             OUR SERVICES
           </p>
-          <p className="text-3xl font-bold w-2/3 ">
+          <p className=" text-2xl md:text-3xl font-bold  md:w-2/3 ">
             We Provide Better Health Experience and Placement
           </p>
         </div>
-        <Link
-          href="/services"
-          className="bg-redish transition   hover:duration-500 hover:ease-in-out hover:-translate-y-2 shadow-2xl hover: shadow-redish rounded-lg text-white  px-9 py-3"
-        >
-          {" "}
-          All Services{" "}
-        </Link>
       </div>
-      <div className="grid gap-6 text-greyish grid-cols-4">
+      <div className="grid gap-6 text-greyish md:grid-cols-4">
         <div className="bg-white h-96 p-3 hover:-translate-y-4 duration-300 hover:text-redish  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight hover:border-lightish border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
@@ -139,6 +132,15 @@ const Services = () => {
             <FontAwesomeIcon icon={faArrowRight} />{" "}
           </Link>
         </div>
+      </div>
+      <div className="flex  justify-end">
+        <Link
+          href="/services"
+          className="bg-redish transition   hover:duration-500 hover:ease-in-out hover:-translate-y-2 shadow-2xl hover: shadow-redish rounded-lg text-white  px-9 py-3"
+        >
+          {" "}
+          Our Services{" "}
+        </Link>
       </div>
     </div>
   );

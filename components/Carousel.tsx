@@ -3,21 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Image from "next/image";
+import hero from "../public/hero.png";
 import Link from "next/link";
 
 function Carousel() {
   return (
-    <div
-      style={{ height: "28.5rem" }}
-      className=" bg-pinkish grid grid-cols-3 items-center justify-between px-16 "
+    <section
+      // style={{ height: "28.5rem" }}
+      className=" bg-pinkish h-[full] md:h-[30rem] flex flex-col md:flex-row gap-16 items-center justify-start md:items-center md:justify-between px-3 md:px-16 "
     >
-      <div className="grid grid-rows-4 col-span-2">
+      <div className="grid grid-rows-4 col-span-full text-center md:text-left md:col-span-2">
         {/* <div className=""> */}
-        <p className=" items-center grid font-bold underline underline-offset-8 decoration-2 decoration-redish ">
+        <p className=" items-center grid font-bold underline underline-offset-8 decoration-2 decoration-redish text-sm md:text-base ">
           MJN Healthcare Consulting. The ultimate
         </p>
         {/* </div> */}
-        <p className=" text-blackish font-bold text-6xl">
+        <p className=" text-blackish font-bold text-2xl md:text-6xl">
           Guide for you as a <span className="text-redish">nurse</span> dreaming
           of a life abroad
         </p>
@@ -26,10 +27,10 @@ function Carousel() {
           Helping healthcare professionals get jobs in one of the finest
           healthcare facilities abroad.
         </p>
-        <div className="flex gap-4">
+        <div className="flex gap-4 justify-center md:justify-start">
           <Link
-            href=""
-            className="bg-redish duration-500 hover:-translate-y-2  border h-11 border-redish rounded-md py-2 px-4 text-white text-sm"
+            href="services"
+            className="bg-redish duration-500 hover:-translate-y-2  border h-11 border-redish rounded-md py-2 px-5 text-white text-md"
           >
             {" "}
             Learn More
@@ -42,21 +43,21 @@ function Carousel() {
               className="text-2xl mr-2"
               icon={faWhatsapp as IconProp}
             />
-            +237 558 996 887
+            (+971) 525 253 890
           </Link>
         </div>
       </div>
-      <div className="grid items-center justify-center ">
+      <div className="relative flex md:h-full   items-center justify-center ">
         <Image
           alt="hero image"
           src="/hero.png"
-          className="absolute  ml-14"
+          className="absolute h-full overflow-hidden  md:ml-14"
           height={600}
-          width={306}
+          width={320}
         />
-        <div className="h-96 w-96 bg-gradient-to-b from-redish to-pinkish rounded-full "></div>
+        <div className=" h-96 w-96 bg-gradient-to-b from-redish to-pinkish rounded-full "></div>
       </div>
-    </div>
+    </section>
   );
 }
 

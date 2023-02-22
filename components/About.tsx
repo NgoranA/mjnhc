@@ -1,15 +1,23 @@
+import {
+  faEye,
+  faEyeDropper,
+  faEyeLowVision,
+  faEyeSlash,
+  faPersonChalkboard,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 
 const AboutSection = () => {
   return (
-    <div className="h-screen px-16 grid items-center grid-cols-2 ">
-      <section className="grid gap-4">
+    <div className=" h-full py-16 md:h-screen px-3 text-left md:text-left  flex flex-col md:flex-row gap-16  md:gap-4 md:px-16 md:py-0  md:items-center md:justify-between ">
+      <div className="flex flex-col w-full md:w-7/12 gap-9">
         <p className="font-bold text-redish  ">WHO WE ARE</p>
         <p className="text-3xl font-extrabold">
           Experienced and Open Minded Team of HealthCare Professionals
         </p>
-        <p>
+        <p className="text-justify">
           MJN Healthcare Consulting is a team of healthcare professionals who
           help one another in their careers. Our contributors are people with
           nursing and care experience like you. We work with trusted healthcare
@@ -17,21 +25,15 @@ const AboutSection = () => {
           facilities around the world PRECISELY IN U.K, U.S.A, U.A.E, and
           Germany.
         </p>
-        <div className="grid grid-cols-2  ">
+        <div className="flex flex-col md:flex-row gap-5  justify-between  ">
           <div className="flex gap-3 h-20 justify-start">
-            <div className=" grid items-center bg-pinkish rounded-md p-3 justify-center">
-              {" "}
-              <Image
-                alt="mission image"
-                src="/mission.png"
-                height={80}
-                // className="bg"
-                width={120}
-              />{" "}
-            </div>
-            <div className="">
+            <FontAwesomeIcon
+              icon={faEye}
+              className="p-5 text-redish text-5xl rounded-lg bg-pinkish"
+            />
+            <div className="text-left">
               <p className="font-bold">Our Mission</p>
-              <p className=" text-sm">
+              <p className="text-left text-sm">
                 {" "}
                 Our purpose today is the same as it always has been – placing
                 nurses on the path to career success{" "}
@@ -39,29 +41,23 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="flex gap-3 h-20 justify-start">
-            <div className=" grid items-center bg-pinkish rounded-md p-3 justify-center">
-              {" "}
-              <Image
-                alt="mission image"
-                src="/advice.png"
-                height={80}
-                // className="bg"
-                width={120}
-              />{" "}
-            </div>
-            <div className="">
+            <FontAwesomeIcon
+              icon={faPersonChalkboard}
+              className="p-5 text-redish text-5xl rounded-lg bg-pinkish"
+            />
+            <div className="text-left">
               <p className="font-bold">Health Advice</p>
-              <p className=" text-sm">
+              <p className="text-left text-sm">
                 receive advice, insights and inspiration to help you progress
                 your career.
               </p>
             </div>
           </div>
         </div>
-      </section>
-      <div className="grid grid-cols-2 ml-auto gap-4 justify-center">
-        <div className="bg-lightish h-80 w-60 translate-y-12  rounded-lg"></div>
-        <div className="bg-lightish h-80 w-60 -translate-y-12  rounded-lg"></div>
+      </div>
+      <div className="flex w-full md:w-5/12 md:ml-auto gap-4 justify-center">
+        <div className="bg-lightish h-80 w-6/12 translate-y-12  rounded-lg"></div>
+        <div className="bg-lightish h-80 w-6/12 -translate-y-12  rounded-lg"></div>
       </div>
     </div>
   );

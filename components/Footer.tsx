@@ -24,7 +24,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex bg-lightish px-4 mg:px-16 items-start py-8">
+    <footer className="flex bg-lightish px-4 md:px-16 items-start py-8">
       <div className="flex flex-col-reverse md:flex-row  gap-5 justify-between">
         <div className=" gap-3 flex md:hidden  flex-col">
           <p className="font-bold text-greyish text-base">

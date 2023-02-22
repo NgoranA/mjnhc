@@ -113,7 +113,7 @@ function Contact(): JSX.Element {
             </div>
             <button
               type="submit"
-              className="bg-redish mt-7 py-3 text-white w-4/12 rounded-lg shadow-sm shadow-pinkish "
+              className="bg-redish mt-7 py-3 text-white w-full sm:w-4/12 rounded-lg shadow-sm shadow-pinkish "
             >
               Submit <FontAwesomeIcon icon={faPaperPlane} className="px-3" />
             </button>

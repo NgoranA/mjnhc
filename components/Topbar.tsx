@@ -30,7 +30,7 @@ function Topbar() {
         </a>
         <div className="hidden sm:flex items-center space-x-2">
           <FontAwesomeIcon icon={faPhone} className="text-base text-redish  " />
-          <p className="max-w-md text-sm hidden sm:block">+237 568 524 236</p>
+          <p className="max-w-md text-sm hidden sm:block">(+971) 525 253 890</p>
         </div>
       </div>
       <div className="flex items-center justify-start text-sm space-x-2 ">

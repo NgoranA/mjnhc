@@ -45,7 +45,7 @@ const AboutSection = () => {
           <div className="flex gap-3 h-20 justify-start">
             <FontAwesomeIcon
               icon={faPersonChalkboard}
-              className="p-5 text-redish text-5xl rounded-lg bg-pinkish"
+              className="p-4 text-redish text-5xl rounded-lg bg-pinkish"
             />
             <div className="text-left">
               <p className="font-bold">Health Advice</p>

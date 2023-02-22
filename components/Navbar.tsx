@@ -17,7 +17,7 @@ function Navbar() {
     },
     {
       label: "Services",
-      path: "services",
+      path: "/services",
     },
     {
       label: "About Us",

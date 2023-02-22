@@ -8,6 +8,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
+import ser from "../public/imj2.jpg";
+import ser1 from "../public/ser3.jpg";
 
 const AboutSection = () => {
   return (
@@ -56,8 +58,22 @@ const AboutSection = () => {
         </div>
       </div>
       <div className="flex w-full md:w-5/12 md:ml-auto gap-4 justify-center">
-        <div className="bg-lightish h-80 w-6/12 translate-y-12  rounded-lg"></div>
-        <div className="bg-lightish h-80 w-6/12 -translate-y-12  rounded-lg"></div>
+        <div className="bg-lightish h-56 md:h-96 w-6/12 translate-y-12 relative   rounded-full">
+          {" "}
+          <Image
+            src={ser}
+            className="h-full rounded-full"
+            alt="about_picture"
+          />{" "}
+        </div>
+        <div className="bg-lightish h-56 md:h-96 w-6/12 -translate-y-12 relative   rounded-full">
+          {" "}
+          <Image
+            src={ser1}
+            className="h-full rounded-full"
+            alt="about_picture"
+          />{" "}
+        </div>
       </div>
     </div>
   );

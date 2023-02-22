@@ -26,7 +26,7 @@ const Services = () => {
         </div>
       </div>
       <div className="grid gap-6 text-greyish md:grid-cols-4">
-        <div className="bg-white h-96 p-3 hover:-translate-y-4 duration-300 hover:text-redish  rounded-lg">
+        <div className="bg-white h-full p-3 hover:-translate-y-4 duration-300 hover:text-redish  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight hover:border-lightish border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -47,14 +47,17 @@ const Services = () => {
           {/* <div className="w-full"> */}
           <Link
             href="services"
-            className="h-12  w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
+            className="h-12 w-12 mx-auto -mt-6 items-center justify-center flex text-white "
           >
             {" "}
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="bg-redish ring-4 ring-pinkish ring-offset-white ring-offset-2 rounded-full p-4"
+            />{" "}
           </Link>
           {/* </div> */}
         </div>
-        <div className="bg-white hover:text-redish hover:-translate-y-4 duration-300 h-96 p-3  rounded-lg">
+        <div className="bg-white hover:text-redish hover:-translate-y-4 duration-300 h-full p-3  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -74,13 +77,16 @@ const Services = () => {
           </div>
           <Link
             href="services"
-            className="h-12 w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
+            className="h-12 w-12 mx-auto -mt-6 items-center justify-center flex text-white "
           >
             {" "}
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="bg-redish ring-4 ring-pinkish ring-offset-white ring-offset-2 rounded-full p-4"
+            />{" "}
           </Link>
         </div>
-        <div className="bg-white hover:text-redish h-96 p-3 hover:-translate-y-4 duration-300  rounded-lg">
+        <div className="bg-white hover:text-redish h-full p-3 hover:-translate-y-4 duration-300  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -100,13 +106,16 @@ const Services = () => {
           </div>
           <Link
             href="services"
-            className="h-12 w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
+            className="h-12 w-12 mx-auto -mt-6 items-center justify-center flex text-white "
           >
             {" "}
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="bg-redish ring-4 ring-pinkish ring-offset-white ring-offset-2 rounded-full p-4"
+            />{" "}
           </Link>
         </div>
-        <div className="bg-white hover:text-redish h-96 p-3 hover:-translate-y-4 duration-300  rounded-lg">
+        <div className="bg-white hover:text-redish h-full p-3 hover:-translate-y-4 duration-300  rounded-lg">
           <div className="  rounded-lg flex gap-3 items-center flex-col text-center  border-greylight border-2 px-2 py-10  ">
             <div className="h-20 w-20 p-2 flex items-center justify-center bg-lightish rounded-full">
               <FontAwesomeIcon
@@ -126,10 +135,13 @@ const Services = () => {
           </div>
           <Link
             href="services"
-            className="h-12 w-12 mx-auto -mt-6 bg-redish items-center justify-center flex rounded-full text-white outline-lightish outline  outline-4"
+            className="h-12 w-12 mx-auto -mt-6 items-center justify-center flex text-white "
           >
             {" "}
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="bg-redish ring-4 ring-pinkish ring-offset-white ring-offset-2 rounded-full p-4"
+            />{" "}
           </Link>
         </div>
       </div>

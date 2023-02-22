@@ -11,10 +11,14 @@ import React from "react";
 const Team = () => {
   return (
     <section className="bg-lightish h-full flex bg-gradient-to-t from-lightish flex-col py-12  ">
-      <div className="flex flex-col items-center  sm:flex-row sm:justify-between sm:gap-16 sm:items-center pl-3 md:pl-16">
+      <div className="flex flex-col items-center  sm:flex-row sm:justify-between gap-8 sm:gap-16 sm:items-center pl-3 md:pl-16">
         <div className="w-full md:w-10/12 gap-5 flex flex-col z-50 ">
-          <p className="text-base text-redish font-bold">OUR TEAM</p>{" "}
-          <p className="text-3xl font-bold ">Meet Our Team Of Experts</p>
+          <p className="text-base text-redish text-center sm:text-left font-bold">
+            OUR TEAM
+          </p>{" "}
+          <p className="text-3xl font-bold text-center sm:text-left ">
+            Meet Our Team Of Experts
+          </p>
           <p className="text-greyish w-11/12 text-justify sm:text-left sm:w-10/12">
             <span className="font-bold "> Mbout John Nyah</span> and his Well
             Trained and Experienced Team of Experts are dedicated in providing
@@ -23,8 +27,13 @@ const Team = () => {
             abroad.
           </p>
           <div>
-            <p className="font-bold text-lg"> Mbout John Nyah, RN, BSN</p>
-            <p className="text-redish font-bold">CEO and Founder</p>
+            <p className="font-bold text-lg text-center sm:text-left">
+              {" "}
+              Mbout John Nyah, RN, BSN
+            </p>
+            <p className="text-redish font-bold text-center sm:text-left">
+              CEO and Founder
+            </p>
           </div>
         </div>
         <div className="w-full sm:w-5/12  md:ml-96 overflow-hidden ">
@@ -42,7 +51,7 @@ const Team = () => {
         </div>
       </div>
       <div className="bg-gradient-to-t from-lightish z-40  -mt-14 h-20 "></div>
-      <div className="bg-lightish h-full z-50 flex flex-col md:flex-row gap-9 justify-between px-8 md:px-16  w-full">
+      <div className="bg-lightish h-full z-50 flex flex-col sm:flex-row gap-9 justify-between px-8 md:px-16  w-full">
         <figure className="flex flex-col md:flex-row hover:scale-110 items-center gap-3 transition duration-500 bg-white w-full rounded-2xl ">
           <Image
             src="/f.jpg"

@@ -18,7 +18,7 @@ import { gql, useMutation } from "@apollo/client";
 import { Toaster, toast } from "react-hot-toast";
 
 const CONTACT_US = gql`
-  mutation CreateContact($content: ContactInput!) {
+  mutation Mutation($content: ContactInput!) {
     createContact(content: $content) {
       success
       code
@@ -52,14 +52,23 @@ function Contact(): JSX.Element {
     !formData.message ||
     !formData.subject;
 
-  const [createContact, { data, loading, error }] = useMutation(CONTACT_US, {
-    variables: {
-      content: formData,
-    },
-  });
+  const [createContact, { data, loading, error, reset }] = useMutation(
+    CONTACT_US,
+    {
+      variables: {
+        content: formData,
+      },
+    }
+  );
 
-  if (data) toast.success(data?.createContact?.message);
-  if (error) toast.error(error.message);
+  if (data) {
+    toast.success(data?.createContact?.message);
+    reset();
+  }
+  if (error) {
+    toast.error(error.message);
+    reset();
+  }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     createContact();

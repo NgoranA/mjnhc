@@ -30,7 +30,7 @@ function createIsomorphLink(ctx: SchemaContext) {
     //  from lets us assign multiple links to our apollo context
     return from([
       new HttpLink({
-        uri: "http://localhost:3000/api/graphql",
+        uri: "mjnhc.vercel.app/api/graphql",
         credentials: "same-origin",
       }),
     ]);

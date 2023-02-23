@@ -63,6 +63,7 @@ function Contact(): JSX.Element {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     createContact();
+    setData(initialValues);
   };
 
   return (

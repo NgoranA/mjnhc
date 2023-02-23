@@ -5,6 +5,7 @@ import { resolver as postResolver } from "../typeDefs/post";
 import { typeDefs as PostType } from "../typeDefs/post";
 import { resolver as TestimonyResolver } from "../typeDefs/testimony";
 import { typeDefs as TestimonyType } from "../typeDefs/testimony";
+import { contactDefs, contactResolver } from "../typeDefs/contact";
 import { merge } from "lodash";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
@@ -40,11 +41,12 @@ const resolvers = {
 };
 
 export const schema = makeExecutableSchema({
-  typeDefs: [typeDefs, Appointment, PostType, TestimonyType],
+  typeDefs: [typeDefs, Appointment, PostType, TestimonyType, contactDefs],
   resolvers: merge(
     resolvers,
     appointmentResolvers,
     postResolver,
-    TestimonyResolver
+    TestimonyResolver,
+    contactResolver
   ),
 });

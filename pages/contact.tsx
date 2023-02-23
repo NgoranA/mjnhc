@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Topbar from "../components/Topbar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,13 +9,65 @@ import {
   faLocationPinLock,
   faPaperPlane,
   faPhoneVolume,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import teamPic from "../public/ct.jpg";
+import { Contact } from "../apollo/typeDefs/contact";
+import { gql, useMutation } from "@apollo/client";
+import { Toaster, toast } from "react-hot-toast";
+
+const CONTACT_US = gql`
+  mutation CreateContact($content: ContactInput!) {
+    createContact(content: $content) {
+      success
+      code
+      message
+      content {
+        firstName
+        lastName
+        email
+        subject
+        message
+      }
+    }
+  }
+`;
 
 function Contact(): JSX.Element {
+  const initialValues: Contact = {
+    email: "",
+    firstName: "",
+    lastName: "",
+    message: "",
+    subject: "",
+  };
+
+  const [formData, setData] = useState(initialValues);
+
+  const formState: boolean =
+    !formData.email ||
+    !formData.firstName ||
+    !formData.lastName ||
+    !formData.message ||
+    !formData.subject;
+
+  const [createContact, { data, loading, error }] = useMutation(CONTACT_US, {
+    variables: {
+      content: formData,
+    },
+  });
+
+  if (data) toast.success(data?.createContact?.message);
+  if (error) toast.error(error.message);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    createContact();
+  };
+
   return (
     <div>
+      <Toaster />
       <Topbar />
       <Navbar />
       <section className="h-96 w-full">
@@ -65,13 +117,25 @@ function Contact(): JSX.Element {
       </section>
       <section className="my-28 flex justify-center">
         <div className="h-auto w-11/12 md:w-11/12 rounded-xl shadow-lg shadow-pinkish  -mt-20 bg-white flex-col flex md:flex-row  ">
-          <form className=" w-full md:w-6/12 flex flex-col gap-4 px-6 py-9">
+          <form
+            onSubmit={handleSubmit}
+            className=" w-full md:w-6/12 flex flex-col gap-4 px-6 py-9"
+          >
             <div className="flex flex-col sm:flex-row gap-2 items-center  ">
               <div className="flex w-full sm:w-6/12 flex-col ">
                 <label htmlFor="" className="text-greyish">
                   First Name
                 </label>
                 <input
+                  onChange={(e) => {
+                    setData((prev) => {
+                      return {
+                        ...prev,
+                        firstName: e.target.value,
+                      };
+                    });
+                  }}
+                  value={formData.firstName}
                   type="text"
                   className="rounded-md    focus:ring-2 focus:ring-pinkish transition-colors delay-300 duration-700  focus:border-none form-input"
                 />
@@ -81,6 +145,15 @@ function Contact(): JSX.Element {
                   Last Name
                 </label>
                 <input
+                  onChange={(e) => {
+                    setData((prev) => {
+                      return {
+                        ...prev,
+                        lastName: e.target.value,
+                      };
+                    });
+                  }}
+                  value={formData.lastName}
                   type="text"
                   className="rounded-md    focus:ring-2 focus:ring-pinkish   focus:border-none form-input"
                 />
@@ -91,6 +164,15 @@ function Contact(): JSX.Element {
                 Email
               </label>
               <input
+                onChange={(e) => {
+                  setData((prev) => {
+                    return {
+                      ...prev,
+                      email: e.target.value,
+                    };
+                  });
+                }}
+                value={formData.email}
                 type="email"
                 className="rounded-md   focus:ring-2 focus:ring-pinkish   focus:border-none form-input"
               />
@@ -101,6 +183,15 @@ function Contact(): JSX.Element {
                 Subject
               </label>
               <input
+                onChange={(e) => {
+                  setData((prev) => {
+                    return {
+                      ...prev,
+                      subject: e.target.value,
+                    };
+                  });
+                }}
+                value={formData.subject}
                 type="text"
                 className="rounded-md   focus:ring-2 focus:ring-pinkish   focus:border-none form-input"
               />
@@ -109,13 +200,43 @@ function Contact(): JSX.Element {
               <label htmlFor="" className="text-greyish">
                 Message
               </label>
-              <textarea className="rounded-md   focus:ring-2 focus:ring-pinkish   focus:border-none form-input" />
+              <textarea
+                onChange={(e) => {
+                  setData((prev) => {
+                    return {
+                      ...prev,
+                      message: e.target.value,
+                    };
+                  });
+                }}
+                required
+                value={formData.message}
+                className="rounded-md   focus:ring-2 focus:ring-pinkish   focus:border-none form-input"
+              />
             </div>
             <button
               type="submit"
-              className="bg-redish mt-7 py-3 text-white w-full sm:w-4/12 rounded-lg shadow-sm shadow-pinkish "
+              disabled={formState}
+              className={` ${
+                formState
+                  ? "bg-pinkish cursor-help text-greyish "
+                  : "bg-redish text-white"
+              }  mt-7 py-3  w-full sm:w-4/12 rounded-lg shadow-sm shadow-pinkish `}
             >
-              Submit <FontAwesomeIcon icon={faPaperPlane} className="px-3" />
+              {loading ? (
+                <>
+                  Sending...
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className="px-3 animate-spin"
+                  />
+                </>
+              ) : (
+                <>
+                  Submit{" "}
+                  <FontAwesomeIcon icon={faPaperPlane} className="px-3" />
+                </>
+              )}
             </button>
           </form>
           <div className="relative w-full h-full md:w-6/12">

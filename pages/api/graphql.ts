@@ -7,10 +7,30 @@ import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
 
+import nodemailer from "nodemailer";
+
+const email = process.env.EMAIL;
+const pass = process.env.EMAIL_PASS;
+
+export const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: email,
+    pass,
+  },
+});
+
+export const mailOptions = {
+  from: email,
+  to: email,
+};
+
 export type ServerContext = {
   req: NextApiRequest;
   res: NextApiResponse;
   prisma: PrismaClient;
+  mailOptions?: any;
+  transporter?: any;
 };
 
 export const apolloServer = new ApolloServer<ServerContext>({ schema });
@@ -24,6 +44,8 @@ export default startServerAndCreateNextHandler(apolloServer, {
         req,
         res,
         prisma,
+        mailOptions,
+        transporter,
       };
     }
     const { user } = session;
@@ -32,6 +54,8 @@ export default startServerAndCreateNextHandler(apolloServer, {
       res,
       prisma,
       user,
+      mailOptions,
+      transporter,
     };
   },
 });

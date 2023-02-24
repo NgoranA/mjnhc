@@ -23,13 +23,6 @@ const CONTACT_US = gql`
       success
       code
       message
-      content {
-        firstName
-        lastName
-        email
-        subject
-        message
-      }
     }
   }
 `;
@@ -61,9 +54,11 @@ function Contact(): JSX.Element {
     }
   );
 
-  if (data) {
+  if (data?.createContact?.code === 200) {
     toast.success(data?.createContact?.message);
     reset();
+  } else {
+    toast.error(data?.createContact?.message);
   }
   if (error) {
     toast.error(error.message);
@@ -92,7 +87,7 @@ function Contact(): JSX.Element {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
-      <section className="flex flex-col md:flex-row gap-8 items-center h-fit px-3 md:px-16 -mt-28  ">
+      <section className="flex flex-col md:flex-row gap-16 md:gap-8 z-50 items-center h-fit px-3 md:px-16 -mt-28  ">
         <div className="rounded-lg gap-5 flex flex-col transition duration-500 hover:-translate-y-9 items-center justify-center bg-pinkish w-full md:w-3/12 h-52">
           <FontAwesomeIcon
             icon={faLocationPinLock}
@@ -227,7 +222,7 @@ function Contact(): JSX.Element {
             <button
               type="submit"
               disabled={formState}
-              className={` ${
+              className={`${
                 formState
                   ? "bg-pinkish cursor-help text-greyish "
                   : "bg-redish text-white"
@@ -238,7 +233,7 @@ function Contact(): JSX.Element {
                   Sending...
                   <FontAwesomeIcon
                     icon={faSpinner}
-                    className="px-3 animate-spin"
+                    className="px-3 text-white animate-spin"
                   />
                 </>
               ) : (

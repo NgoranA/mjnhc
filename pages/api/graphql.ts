@@ -10,6 +10,7 @@ import { authOptions } from "./auth/[...nextauth]";
 import nodemailer from "nodemailer";
 
 const email = process.env.EMAIL;
+const receiving_email = process.env.RECEIVE_EMAIL;
 const pass = process.env.EMAIL_PASS;
 
 export const transporter = nodemailer.createTransport({
@@ -22,7 +23,7 @@ export const transporter = nodemailer.createTransport({
 
 export const mailOptions = {
   from: email,
-  to: email,
+  to: receiving_email,
 };
 
 export type ServerContext = {

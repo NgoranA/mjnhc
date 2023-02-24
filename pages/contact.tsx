@@ -54,16 +54,20 @@ function Contact(): JSX.Element {
     }
   );
 
-  if (data?.createContact?.code === 200) {
-    toast.success(data?.createContact?.message);
-    reset();
+  if (data) {
+    if (data?.createContact?.code === 200) {
+      toast.success(data?.createContact?.message);
+      reset();
+    } else {
+      toast.error(data?.createContact?.message);
+    }
   } else {
-    toast.error(data?.createContact?.message);
+    if (error) toast.error(error.message);
   }
-  if (error) {
-    toast.error(error.message);
-    reset();
-  }
+  // if (error) {
+  //   toast.error(error.message);
+  //   reset();
+  // }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     createContact();
@@ -223,10 +227,10 @@ function Contact(): JSX.Element {
               type="submit"
               disabled={formState}
               className={`${
-                formState
-                  ? "bg-pinkish cursor-help text-greyish "
+                formState && !loading
+                  ? "bg-lightish cursor-help text-pinkish "
                   : "bg-redish text-white"
-              }  mt-7 py-3  w-full sm:w-4/12 rounded-lg shadow-sm shadow-pinkish `}
+              }   mt-7 py-3  w-full sm:w-4/12 rounded-lg shadow-sm shadow-pinkish `}
             >
               {loading ? (
                 <>
